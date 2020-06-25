@@ -3,9 +3,7 @@ package com.firstlinecode.basalt.oxm.android;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
 
-import java.io.ByteArrayInputStream;
-import java.io.InputStream;
-import java.nio.charset.StandardCharsets;
+import java.io.StringReader;
 
 /**
  * @author xb.zou
@@ -29,14 +27,10 @@ public class XmlParserFactory implements IXmlParserFactory {
         xmlPullParserFactory.setNamespaceAware(true);
         XmlPullParser parser = xmlPullParserFactory.newPullParser();
         XmlPullParserWrapper xmlPullParser = new XmlPullParserWrapper(parser);
+
         // 转换成输入流形式进行解析
-        InputStream msgInputStream = parseInputStream(message);
-        xmlPullParser.setInput(msgInputStream, String.valueOf(StandardCharsets.UTF_8));
+        xmlPullParser.setInput(new StringReader(message));
 
         return xmlPullParser;
-    }
-
-    private InputStream parseInputStream(String message) {
-        return new ByteArrayInputStream(message.getBytes(StandardCharsets.UTF_8));
     }
 }
