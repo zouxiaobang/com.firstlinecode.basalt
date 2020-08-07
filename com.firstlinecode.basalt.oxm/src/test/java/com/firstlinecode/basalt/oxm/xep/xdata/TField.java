@@ -25,13 +25,13 @@ public class TField {
 	private String desc;
 	@BooleanOnly
 	private boolean required;
-	@Array(type=String.class, elementName="value")
+	@Array(value=String.class, elementName="value")
 	@TextOnly
 	private List<String> values;
-	@String2Enum(type=TField.Type.class)
+	@String2Enum(TField.Type.class)
 	private Type type;
 	private String label;
-	@Array(type=TOption.class, elementName="option")
+	@Array(value=TOption.class, elementName="option")
 	private List<TOption> options;
 	private String var;
 	

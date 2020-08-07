@@ -22,8 +22,10 @@ public final class ParsingPath implements IParsingPath {
 	
 	@Override
 	public int hashCode() {
-		int hash = 7;
+		if (paths.isEmpty())
+			return 0;
 		
+		int hash = 7;
 		for (String path : paths) {
 			hash += 31 * hash + path.hashCode();
 		}

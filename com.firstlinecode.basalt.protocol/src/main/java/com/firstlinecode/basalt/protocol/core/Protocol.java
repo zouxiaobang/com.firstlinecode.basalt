@@ -33,7 +33,9 @@ public final class Protocol {
 	public int hashCode() {
 		int hash = 7;
 		
-		hash += 31 * hash + (namespace == null ? 0 : namespace.hashCode());
+		if (namespace != null)
+			hash += 31 * hash + namespace.hashCode();
+		
 		hash += 31 * hash + localName.hashCode();
 		
 		return hash;

@@ -7,7 +7,6 @@ import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.firstlinecode.basalt.protocol.core.Protocol;
 import com.firstlinecode.basalt.oxm.Attributes;
 import com.firstlinecode.basalt.oxm.Value;
 import com.firstlinecode.basalt.oxm.convention.annotations.Array;
@@ -23,6 +22,7 @@ import com.firstlinecode.basalt.oxm.convention.conversion.ConverterFactory;
 import com.firstlinecode.basalt.oxm.translating.IProtocolWriter;
 import com.firstlinecode.basalt.oxm.translating.ITranslatingFactory;
 import com.firstlinecode.basalt.oxm.translating.ITranslator;
+import com.firstlinecode.basalt.protocol.core.Protocol;
 
 public class NamingConventionTranslator<T> implements ITranslator<T> {
 	private Protocol protocol;
@@ -139,7 +139,7 @@ public class NamingConventionTranslator<T> implements ITranslator<T> {
 		
 		if (array != null) {
 			ArrayDescriptor arrayDescriptor = new ArrayDescriptor();
-			Class<?> elementType = array.type();
+			Class<?> elementType = array.value();
 			
 			if (textOnly != null && !isPrimitiveType(elementType) && converterAnnotation == null) {
 				throw new RuntimeException("Text only element must be primitive type or have a converter.");
@@ -203,14 +203,14 @@ public class NamingConventionTranslator<T> implements ITranslator<T> {
 	}
 
 	private String getArrayElementName(String elementName, Class<?> elementType) {
-		if (elementName != null)
+		if (elementName != null && !elementName.isEmpty())
 			return elementName;
 		
 		if (isPrimitiveType(elementType)) {
-			throw new IllegalArgumentException("Element type is primitive type. Element name shouldn't be null.");
+			throw new IllegalArgumentException("Element type is primitive type. Element name should be set explicitly.");
 		}
 		
-		return elementType.getSimpleName().toLowerCase();
+		return getNameByNamingConvention(elementType.getSimpleName());
 	}
 
 	private String getTranslatingName(Field field, BindTo bindTo) {

@@ -21,8 +21,10 @@ public class Feature {
 	}
 	
 	public int hashCode() {
-		int hash = 7;
+		if (var == null)
+			return 0;
 		
+		int hash = 7;
 		hash += 31 * hash + (var == null ? 0 : var.hashCode());
 		
 		return hash;

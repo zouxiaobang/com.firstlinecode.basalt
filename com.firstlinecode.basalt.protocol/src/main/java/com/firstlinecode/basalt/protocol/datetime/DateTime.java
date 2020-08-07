@@ -3,6 +3,8 @@ package com.firstlinecode.basalt.protocol.datetime;
 import java.text.ParseException;
 import java.util.Calendar;
 
+import com.firstlinecode.basalt.protocol.HandyUtils;
+
 public class DateTime {
 	private Date date;
 	private Time time;
@@ -75,5 +77,22 @@ public class DateTime {
 		String timeString = string.substring(timeSeperatorIndex + 1, string.length());
 		
 		return new DateTime(Date.parse(dateString), Time.parse(timeString));
+	}
+	
+	@Override
+	public int hashCode() {
+		return date.hashCode() + time.hashCode();
+	}
+	
+	@Override
+	public boolean equals(Object obj) {
+		if (obj instanceof DateTime) {
+			DateTime other = (DateTime)obj;
+			
+			return HandyUtils.equalsExceptNull(this.getDate(), other.getDate()) &&
+					HandyUtils.equalsExceptNull(this.getTime(), other.getTime());
+		}
+		
+		return false;
 	}
 }

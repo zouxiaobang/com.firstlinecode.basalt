@@ -35,12 +35,11 @@ public final class ProtocolChain {
 	}
 	
 	@Override
-	public int hashCode() {
-		int hash = 7;
-		
+	public int hashCode() {		
 		if (protocols.size() == 0)
-			return 31 * hash;
+			return 0;
 		
+		int hash = 7;
 		for (Protocol protocol : protocols) {
 			hash += 31 * hash + protocol.hashCode();
 		}

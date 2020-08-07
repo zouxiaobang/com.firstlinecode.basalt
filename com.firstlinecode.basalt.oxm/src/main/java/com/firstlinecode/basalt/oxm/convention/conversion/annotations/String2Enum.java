@@ -12,7 +12,7 @@ import com.firstlinecode.basalt.oxm.convention.conversion.factories.String2EnumC
 @Target(ElementType.FIELD)
 @ConverterFactory(String2EnumConverterFactory.class)
 public @interface String2Enum {
-	Class<?> type();
+	Class<?> value();
 	boolean upperCaseString() default true;
 	boolean dashToUnderline() default true;
 }

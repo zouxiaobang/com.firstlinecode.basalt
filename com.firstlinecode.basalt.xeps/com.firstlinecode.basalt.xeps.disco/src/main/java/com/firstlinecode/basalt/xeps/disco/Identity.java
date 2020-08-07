@@ -44,9 +44,14 @@ public class Identity {
 	public int hashCode() {
 		int hash = 7;
 		
-		hash += 31 * hash + (category == null ? 0 : category.hashCode());
-		hash += 31 * hash + (name == null ? 0 : name.hashCode());
-		hash += 31 * hash + (type == null ? 0 : type.hashCode());
+		if (category != null)
+			hash += 31 * hash + category.hashCode();
+		
+		if (name != null)
+			hash += 31 * hash + name.hashCode();
+		
+		if (type != null)
+			hash += 31 * hash + type.hashCode();
 		
 		return hash;
 	}

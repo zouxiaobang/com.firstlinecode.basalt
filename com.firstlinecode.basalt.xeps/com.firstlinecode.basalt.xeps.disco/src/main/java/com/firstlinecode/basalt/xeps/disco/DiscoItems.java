@@ -3,9 +3,9 @@ package com.firstlinecode.basalt.xeps.disco;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.firstlinecode.basalt.protocol.core.Protocol;
 import com.firstlinecode.basalt.oxm.convention.annotations.Array;
 import com.firstlinecode.basalt.oxm.convention.annotations.ProtocolObject;
+import com.firstlinecode.basalt.protocol.core.Protocol;
 import com.firstlinecode.basalt.xeps.rsm.Set;
 
 @ProtocolObject(namespace="http://jabber.org/protocol/disco#items", localName="query")
@@ -13,7 +13,7 @@ public class DiscoItems {
 	public static final Protocol PROTOCOL = new Protocol("http://jabber.org/protocol/disco#items", "query");
 	
 	private String node;
-	@Array(type=Item.class, elementName="item")
+	@Array(Item.class)
 	private List<Item> items;
 	
 	private Set set;

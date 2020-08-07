@@ -1,12 +1,12 @@
 package com.firstlinecode.basalt.xeps.address;
 
-import com.firstlinecode.basalt.protocol.core.JabberId;
-import com.firstlinecode.basalt.protocol.core.ProtocolException;
-import com.firstlinecode.basalt.protocol.core.stanza.error.BadRequest;
 import com.firstlinecode.basalt.oxm.convention.conversion.annotations.String2Enum;
 import com.firstlinecode.basalt.oxm.convention.conversion.annotations.String2JabberId;
 import com.firstlinecode.basalt.oxm.convention.validation.annotations.Validate;
 import com.firstlinecode.basalt.oxm.convention.validation.annotations.ValidationClass;
+import com.firstlinecode.basalt.protocol.core.JabberId;
+import com.firstlinecode.basalt.protocol.core.ProtocolException;
+import com.firstlinecode.basalt.protocol.core.stanza.error.BadRequest;
 
 @ValidationClass
 public class Address {
@@ -25,7 +25,7 @@ public class Address {
 	private String node;
 	private String desc;
 	private Boolean delivered;
-	@String2Enum(type=Address.Type.class)
+	@String2Enum(Address.Type.class)
 	private Type type;
 	
 	public JabberId getJid() {

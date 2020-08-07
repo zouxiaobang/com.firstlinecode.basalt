@@ -1,10 +1,10 @@
 package com.firstlinecode.basalt.leps.im.message.traceable;
 
-import com.firstlinecode.basalt.protocol.core.JabberId;
-import com.firstlinecode.basalt.protocol.datetime.DateTime;
 import com.firstlinecode.basalt.oxm.convention.conversion.annotations.String2DateTime;
 import com.firstlinecode.basalt.oxm.convention.conversion.annotations.String2Enum;
 import com.firstlinecode.basalt.oxm.convention.conversion.annotations.String2JabberId;
+import com.firstlinecode.basalt.protocol.core.JabberId;
+import com.firstlinecode.basalt.protocol.datetime.DateTime;
 
 public class MsgStatus {
 	public enum Status {
@@ -13,7 +13,7 @@ public class MsgStatus {
 	};
 	
 	private String id;
-	@String2Enum(type=Status.class)
+	@String2Enum(Status.class)
 	private Status status;
 	@String2JabberId
 	private JabberId from;

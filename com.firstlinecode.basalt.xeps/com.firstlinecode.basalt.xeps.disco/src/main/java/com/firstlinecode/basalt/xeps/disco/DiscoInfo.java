@@ -3,9 +3,9 @@ package com.firstlinecode.basalt.xeps.disco;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.firstlinecode.basalt.protocol.core.Protocol;
 import com.firstlinecode.basalt.oxm.convention.annotations.Array;
 import com.firstlinecode.basalt.oxm.convention.annotations.ProtocolObject;
+import com.firstlinecode.basalt.protocol.core.Protocol;
 import com.firstlinecode.basalt.xeps.xdata.XData;
 
 @ProtocolObject(namespace="http://jabber.org/protocol/disco#info", localName="query")
@@ -13,9 +13,9 @@ public class DiscoInfo {
 	public static final Protocol PROTOCOL = new Protocol("http://jabber.org/protocol/disco#info", "query");
 	
 	private String node;
-	@Array(type=Identity.class, elementName="identity")
+	@Array(Identity.class)
 	private List<Identity> identities;
-	@Array(type=Feature.class, elementName="feature")
+	@Array(Feature.class)
 	private List<Feature> features;
 	
 	private XData xData;

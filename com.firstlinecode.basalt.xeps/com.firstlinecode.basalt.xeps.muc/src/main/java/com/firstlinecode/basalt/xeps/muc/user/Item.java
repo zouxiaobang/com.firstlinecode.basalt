@@ -1,10 +1,10 @@
 package com.firstlinecode.basalt.xeps.muc.user;
 
-import com.firstlinecode.basalt.protocol.core.JabberId;
 import com.firstlinecode.basalt.oxm.convention.annotations.BindTo;
 import com.firstlinecode.basalt.oxm.convention.annotations.TextOnly;
 import com.firstlinecode.basalt.oxm.convention.conversion.annotations.String2Enum;
 import com.firstlinecode.basalt.oxm.convention.conversion.annotations.String2JabberId;
+import com.firstlinecode.basalt.protocol.core.JabberId;
 import com.firstlinecode.basalt.xeps.muc.Affiliation;
 import com.firstlinecode.basalt.xeps.muc.Role;
 
@@ -14,12 +14,12 @@ public class Item {
 	private Continue continuee;
 	@TextOnly
 	private String reason;
-	@String2Enum(type=Affiliation.class)
+	@String2Enum(Affiliation.class)
 	private Affiliation affiliation;
 	@String2JabberId
 	private JabberId jid;
 	private String nick;
-	@String2Enum(type=Role.class)
+	@String2Enum(Role.class)
 	private Role role;
 	
 	public Actor getActor() {

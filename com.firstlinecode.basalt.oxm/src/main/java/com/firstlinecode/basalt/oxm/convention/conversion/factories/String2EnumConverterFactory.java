@@ -12,7 +12,7 @@ public class String2EnumConverterFactory implements IConverterFactory {
 	@Override
 	public IConverter<String, Object> create(Annotation annotation) {
 		String2Enum string2Enum = (String2Enum)annotation;
-		return new String2EnumConverter(string2Enum.type(), string2Enum.upperCaseString(),
+		return new String2EnumConverter(string2Enum.value(), string2Enum.upperCaseString(),
 				string2Enum.dashToUnderline());
 	}
 	

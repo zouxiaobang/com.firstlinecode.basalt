@@ -69,4 +69,25 @@ public class Date {
 				calendar.get(Calendar.DATE));
 	}
 	
+	@Override
+	public boolean equals(Object obj) {
+		if (obj instanceof Date) {
+			Date other = (Date)obj;
+			return this.year == other.year && this.month == other.month && this.date == other.date;
+		}
+		
+		return false;
+	}
+	
+	@Override
+	public int hashCode() {
+		int hash = 7;
+		
+		hash += 31 * hash + year;
+		hash += 31 * hash + month;
+		hash += 31 * hash + date;
+		
+		return hash;
+	}
+	
 }

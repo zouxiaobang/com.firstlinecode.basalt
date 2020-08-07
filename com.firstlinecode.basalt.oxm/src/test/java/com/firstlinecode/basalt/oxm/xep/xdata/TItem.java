@@ -6,7 +6,7 @@ import java.util.List;
 import com.firstlinecode.basalt.oxm.convention.annotations.Array;
 
 public class TItem {
-	@Array(type=TField.class, elementName="field")
+	@Array(value=TField.class, elementName="field")
 	private List<TField> fields;
 
 	public List<TField> getFields() {

@@ -26,17 +26,17 @@ public class JabberIdTest {
 	@Test
 	public void parse() {
 		jid = JabberId.parse(jidString1);
-		Assert.assertEquals("dongger", jid.getName());
+		Assert.assertEquals("dongger", jid.getNode());
 		Assert.assertEquals("example.com", jid.getDomain());
 		Assert.assertEquals("default", jid.getResource());
 		
 		jid =  JabberId.parse(jidString2);
-		Assert.assertEquals("dongger", jid.getName());
+		Assert.assertEquals("dongger", jid.getNode());
 		Assert.assertEquals("example.com", jid.getDomain());
 		Assert.assertEquals(null, jid.getResource());
 		
 		jid =  JabberId.parse(jidString3);
-		Assert.assertEquals(null, jid.getName());
+		Assert.assertEquals(null, jid.getNode());
 		Assert.assertEquals("example.com", jid.getDomain());
 		Assert.assertEquals(null, jid.getResource());
 		

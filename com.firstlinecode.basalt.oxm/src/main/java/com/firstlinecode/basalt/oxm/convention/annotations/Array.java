@@ -8,6 +8,6 @@ import java.lang.annotation.Target;
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.FIELD)
 public @interface Array {
-	Class<?> type();
+	Class<?> value();
 	String elementName() default "";
 }

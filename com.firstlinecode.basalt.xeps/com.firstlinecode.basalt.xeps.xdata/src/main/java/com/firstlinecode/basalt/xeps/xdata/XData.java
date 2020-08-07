@@ -3,13 +3,13 @@ package com.firstlinecode.basalt.xeps.xdata;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.firstlinecode.basalt.protocol.core.Protocol;
 import com.firstlinecode.basalt.oxm.convention.annotations.Array;
 import com.firstlinecode.basalt.oxm.convention.annotations.ProtocolObject;
 import com.firstlinecode.basalt.oxm.convention.annotations.TextOnly;
 import com.firstlinecode.basalt.oxm.convention.validation.annotations.Validate;
 import com.firstlinecode.basalt.oxm.convention.validation.annotations.ValidationClass;
 import com.firstlinecode.basalt.oxm.validation.ValidationException;
+import com.firstlinecode.basalt.protocol.core.Protocol;
 
 @ValidationClass
 @ProtocolObject(namespace="jabber:x:data", localName="x")
@@ -27,13 +27,13 @@ public class XData {
 	private String title;
 	@String2XDataType
 	private Type type;
-	@Array(type=String.class, elementName="instructions")
+	@Array(value=String.class, elementName="instructions")
 	@TextOnly
 	private List<String> instructions;
 	private Reported reported;
-	@Array(type=Field.class, elementName="field")
+	@Array(Field.class)
 	private List<Field> fields;
-	@Array(type=Item.class, elementName="item")
+	@Array(Item.class)
 	private List<Item> items;
 	
 	public XData() {}

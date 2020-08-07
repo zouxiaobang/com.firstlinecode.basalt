@@ -25,13 +25,13 @@ public class Field {
 	private String desc;
 	@BooleanOnly
 	private boolean required;
-	@Array(type=String.class, elementName="value")
+	@Array(value=String.class, elementName="value")
 	@TextOnly
 	private List<String> values;
-	@String2Enum(type=Field.Type.class)
+	@String2Enum(Field.Type.class)
 	private Type type;
 	private String label;
-	@Array(type=Option.class, elementName="option")
+	@Array(Option.class)
 	private List<Option> options;
 	private String var;
 	

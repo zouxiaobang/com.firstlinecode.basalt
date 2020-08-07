@@ -12,7 +12,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.Stack;
 
-import com.firstlinecode.basalt.protocol.core.Protocol;
 import com.firstlinecode.basalt.oxm.Attribute;
 import com.firstlinecode.basalt.oxm.Value;
 import com.firstlinecode.basalt.oxm.convention.annotations.Array;
@@ -37,6 +36,7 @@ import com.firstlinecode.basalt.oxm.parsing.IParsingPath;
 import com.firstlinecode.basalt.oxm.parsing.ParserAdaptor;
 import com.firstlinecode.basalt.oxm.parsing.ParsingPath;
 import com.firstlinecode.basalt.oxm.validation.ValidationException;
+import com.firstlinecode.basalt.protocol.core.Protocol;
 
 public class NamingConventionParser<T> extends ParserAdaptor<T> {
 	private static final String PROTOCOL_OBJECT_FLAG = "$$p$$";
@@ -355,7 +355,7 @@ public class NamingConventionParser<T> extends ParserAdaptor<T> {
 	private void scanArrayElementType(ParsingPath parsingPath, Array array, TextOnly textOnly,
 			Annotation converterAnnotation, List<Annotation> validatorAnnotations, PropertyDescriptor propertyDescriptor)
 					throws IntrospectionException {
-		Class<?> elementType = array.type();
+		Class<?> elementType = array.value();
 		
 		String arrayElementName = getArrayElementName(array.elementName(), elementType);
 		if (arrayElementName == null) {
@@ -380,7 +380,7 @@ public class NamingConventionParser<T> extends ParserAdaptor<T> {
 			throw new IllegalArgumentException("Element type is primitive type. Element name shouldn't be null.");
 		}
 		
-		return elementType.getSimpleName().toLowerCase();
+		return getNameByNamingConvention(elementType.getSimpleName());
 	}
 
 	private boolean isArray(Array array, Class<?> fieldType) {

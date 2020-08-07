@@ -45,8 +45,12 @@ public final class LangText {
 	public int hashCode() {
 		int hash = 7;
 		
-		hash += 31 * hash + (lang == null ? 0 : lang.hashCode());
-		hash += 31 * hash + (text == null ? 0 : text.hashCode());
+		if (lang != null)
+			hash += 31 * hash + lang.hashCode();
+		
+		if (text != null)
+			hash += 31 * hash + text.hashCode();
+		
 		return hash;
 	}
 	

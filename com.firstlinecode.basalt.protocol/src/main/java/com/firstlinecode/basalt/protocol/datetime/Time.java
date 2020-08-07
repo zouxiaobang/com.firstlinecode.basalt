@@ -170,4 +170,27 @@ public class Time {
 		}
 	}
 	
+	@Override
+	public int hashCode() {
+		int hash = 7;
+		
+		hash += 31 * hash + hours;
+		hash += 31 * hash + minutes;
+		hash += 31 * hash + seconds;
+		hash += 31 * hash + milliSeconds;
+		
+		return hash;
+	}
+	
+	@Override
+	public boolean equals(Object obj) {
+		if (obj instanceof Time) {
+			Time other = (Time)obj;
+			return this.hours == other.hours && this.minutes == other.minutes &&
+					this.seconds == other.seconds && this.milliSeconds == other.milliSeconds;
+		}
+		
+		return false;
+	}
+	
 }

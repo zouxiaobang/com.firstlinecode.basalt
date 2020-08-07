@@ -6,12 +6,6 @@ import java.util.List;
 import org.junit.Before;
 import org.junit.Test;
 
-import com.firstlinecode.basalt.protocol.core.JabberId;
-import com.firstlinecode.basalt.protocol.core.Protocol;
-import com.firstlinecode.basalt.protocol.core.ProtocolChain;
-import com.firstlinecode.basalt.protocol.core.ProtocolException;
-import com.firstlinecode.basalt.protocol.core.stanza.error.BadRequest;
-import com.firstlinecode.basalt.protocol.im.stanza.Message;
 import com.firstlinecode.basalt.oxm.Attribute;
 import com.firstlinecode.basalt.oxm.IOxmFactory;
 import com.firstlinecode.basalt.oxm.OxmService;
@@ -26,6 +20,12 @@ import com.firstlinecode.basalt.oxm.convention.annotations.ProtocolObject;
 import com.firstlinecode.basalt.oxm.convention.conversion.annotations.String2JabberId;
 import com.firstlinecode.basalt.oxm.parsing.FlawedProtocolObject;
 import com.firstlinecode.basalt.oxm.parsing.IParsingContext;
+import com.firstlinecode.basalt.protocol.core.JabberId;
+import com.firstlinecode.basalt.protocol.core.Protocol;
+import com.firstlinecode.basalt.protocol.core.ProtocolChain;
+import com.firstlinecode.basalt.protocol.core.ProtocolException;
+import com.firstlinecode.basalt.protocol.core.stanza.error.BadRequest;
+import com.firstlinecode.basalt.protocol.im.stanza.Message;
 
 import junit.framework.Assert;
 
@@ -227,7 +227,7 @@ public class MessageTest {
 	
 	public static class Items {
 		private String node;
-		@Array(type=Item.class)
+		@Array(Item.class)
 		private List<Item> items;
 		
 		public String getNode() {
@@ -333,7 +333,7 @@ public class MessageTest {
 	public static class Addresses {
 		public static final Protocol PROTOCOL = new Protocol("http://jabber.org/protocol/address", "addresses");
 		
-		@Array(type=Address.class)
+		@Array(Address.class)
 		private List<Address> addresses;
 
 		public List<Address> getAddresses() {

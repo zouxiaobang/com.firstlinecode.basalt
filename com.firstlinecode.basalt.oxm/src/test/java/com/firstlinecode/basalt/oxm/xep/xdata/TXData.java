@@ -26,13 +26,13 @@ public class TXData {
 	private String title;
 	@TString2XDataType
 	private Type type;
-	@Array(type=String.class, elementName="instructions")
+	@Array(value = String.class, elementName="instructions")
 	@TextOnly
 	private List<String> instructions;
 	private TReported reported;
-	@Array(type=TField.class, elementName="field")
+	@Array(value = TField.class, elementName = "field")
 	private List<TField> fields;
-	@Array(type=TItem.class, elementName="item")
+	@Array(value=TItem.class, elementName="item")
 	private List<TItem> items;
 	
 	public String getTitle() {
